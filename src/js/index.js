@@ -4,10 +4,22 @@ import ReactDOM from "react-dom/client";
 
 // include your styles into the webpack bundle
 import "../styles/index.css";
+import "../styles/counter.css";
+import "../styles/home.css";
 
 //import your own components
-import Home from "./component/home.jsx";
+import SecondsCounter from "./component/secondscounter.jsx";
 
 //render your react application
-ReactDOM.createRoot(document.getElementById('app')).render(<Home/>);
+const InitCounter = () => {
+    let timer = 0; 
+    setInterval(() => {
+        timer++;  
+        ReactDOM.createRoot(document.getElementById('app')).render(<SecondsCounter timer={timer} />); 
+    }, 1000);
+};
+
+window.onload = InitCounter;
+
+
 
